@@ -3,6 +3,8 @@ from flask import Flask, request, redirect, session, url_for
 from flask.json import jsonify
 import os
 import secretloader
+from google.cloud import bigquery
+
 
 app = Flask(__name__)
 
@@ -68,9 +70,15 @@ def profile():
     """Fetching a protected resource using an OAuth 2 token.
     """
     google = OAuth2Session(client_id, token=session['oauth_token'])
+    # project="data-protection-01"
+    # credentials=session['oauth_token']
+    # client = bigquery.Client(project=project, credentials=credentials)
+
 
     # return  jsonify(google.get('https://www.googleapis.com/oauth2/v3/userinfo').json())
     # return  jsonify(google.get('https://bigquery.googleapis.com/bigquery/v2/projects/data-protection-01/datasets').json())
+
+
     return  jsonify(google.get('https://bigquery.googleapis.com//bigquery/v2/projects/data-protection-01/datasets/dataset1/tables/verysecret/data').json())
 
 
