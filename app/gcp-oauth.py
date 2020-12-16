@@ -69,7 +69,9 @@ def profile():
     """
     google = OAuth2Session(client_id, token=session['oauth_token'])
 
-    return  jsonify(google.get('https://www.googleapis.com/oauth2/v3/userinfo').json())
+    # return  jsonify(google.get('https://www.googleapis.com/oauth2/v3/userinfo').json())
+    # return  jsonify(google.get('https://bigquery.googleapis.com/bigquery/v2/projects/data-protection-01/datasets').json())
+    return  jsonify(google.get('https://bigquery.googleapis.com//bigquery/v2/projects/data-protection-01/datasets/dataset1/tables/k8sscan/data').json())
 
 
 if __name__ == "__main__":
