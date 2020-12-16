@@ -27,7 +27,12 @@ token_url = "https://www.googleapis.com/oauth2/v4/token"
 scopes = 'openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/bigquery'    
 
 redirect_uri = 'http://localhost:8080/callback'
+
 project = "data-protection-01"
+query_string = """SELECT firstname, lastname, zip
+    FROM `data-protection-01.dataset1.verysecret`
+    ;
+"""
 
 
 
@@ -73,10 +78,7 @@ def callback():
 
 
     client = bigquery.Client(project=project, credentials=google.credentials)
-    query_string = """SELECT firstname, lastname, zip
-    FROM `data-protection-01.dataset1.verysecret`
-    ;
-    """
+
     query_job = client.query(query_string)
 
     rows = query_job.result()  
