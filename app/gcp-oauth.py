@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # This information is obtained upon registration of a new google OAuth
 # application here: https://google.com/settings/applications/new
-client_id = 'xxxxxx.apps.googleusercontent.com'
+client_id = os.getenv
 client_secret = "xxxxx"
 authorization_base_url = "https://accounts.google.com/o/oauth2/v2/auth"
 token_url = "https://www.googleapis.com/oauth2/v4/token"
