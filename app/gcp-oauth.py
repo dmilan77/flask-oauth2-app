@@ -2,14 +2,15 @@ from requests_oauthlib import OAuth2Session
 from flask import Flask, request, redirect, session, url_for
 from flask.json import jsonify
 import os
+import secretloader
 
 app = Flask(__name__)
 
 
 # This information is obtained upon registration of a new google OAuth
 # application here: https://google.com/settings/applications/new
-client_id = os.getenv
-client_secret = "xxxxx"
+client_id = os.getenv("client_id")
+client_secret = os.getenv("client_secret")
 authorization_base_url = "https://accounts.google.com/o/oauth2/v2/auth"
 token_url = "https://www.googleapis.com/oauth2/v4/token"
 scope = [
