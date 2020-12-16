@@ -85,10 +85,16 @@ def callback():
     query_job = client.query(query_string)
 
     # Print the results.
-    for row in query_job.result():  # Wait for the job to complete.
-        print(row)
-        # print("{}: {}: {}".format(row["firstname"], row["lastname"], row["zip"]))
-    return "GOT CLIENT"
+    # for row in query_job.result():  # Wait for the job to complete.
+    #     print(row)
+    #     # print("{}: {}: {}".format(row["firstname"], row["lastname"], row["zip"]))
+    rows = query_job.result()  
+    out=""
+    for row in rows:
+        out=out+'<br/>'+str(row)
+    # json_obj = json.dumps(str(records))
+    # print(out)
+    return out
 
     # return redirect(url_for('.profile'))
 

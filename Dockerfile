@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 ENV PYTHONPATH=$PYTHONPATH:$APP_HOME
 
 ENTRYPOINT ["python"]
-CMD ["app/gcp-oauth.py"]
+CMD ["app/gcp_oauth.py"]
