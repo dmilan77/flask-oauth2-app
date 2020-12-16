@@ -1,2 +1,4 @@
 **/tfout
 **/.terraform/**
+**/venv/**
+**/.vscode/**
