@@ -5,7 +5,7 @@ import secretloader
 from google_auth_oauthlib.flow import Flow
 from google.cloud import bigquery
 from requests_oauthlib import OAuth2Session
-from google.cloud import bigquery
+
 
 
 
@@ -75,7 +75,6 @@ def callback():
     redirect_uri=redirect_uri,
     state=state)    
     token = google.fetch_token(authorization_response=request.url)
-
 
     client = bigquery.Client(project=project, credentials=google.credentials)
 
